@@ -22,7 +22,7 @@ public class EmailCheckerService {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmailCheckerService.class);
 
     @Autowired
-    private ReqresClient reqresClient;
+    private final ReqresClient reqresClient;
 
     @Value("${reqres.url}")
     private String reqresUrl;

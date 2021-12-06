@@ -1,7 +1,5 @@
 package nl.vz.poi.engine.core.data;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 public class Order {
 
     private int id;
@@ -36,7 +34,6 @@ public class Order {
         this.email = email;
     }
 
-    @JsonIgnore
     public String getFirstName() {
         return firstName;
     }
@@ -45,7 +42,6 @@ public class Order {
         this.firstName = firstName;
     }
 
-    @JsonIgnore
     public String getLastName() {
         return lastName;
     }
