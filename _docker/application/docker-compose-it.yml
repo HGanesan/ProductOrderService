@@ -1,0 +1,37 @@
+version: '3'
+
+services:
+
+  database:
+    build: ../containers/poi-db
+    image: poi-db
+    container_name: poi-db
+    volumes:
+      - ../../_database-model:/tmp/database/:ro
+    command: mysqld --init-file="/tmp/database/poi_database.sql"
+    ports:
+      - "3306:3306"
+    environment:
+      - "MYSQL_ROOT_PASSWORD=hello"
+    networks:
+      static-network:
+        ipv4_address: 172.20.0.10
+
+
+  poi-service:
+    build: ../containers/poi-service
+    image: poi-service
+    container_name: poi-service
+    volumes:
+      - ../../target:/application
+    ports:
+      - "8080:8080"
+    networks:
+      static-network:
+        ipv4_address: 172.20.0.5
+
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

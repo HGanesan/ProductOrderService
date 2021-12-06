@@ -1,0 +1,23 @@
+{
+  "properties": [
+    {
+      "name": "reqres.url",
+      "type": "java.lang.String",
+      "description": "Reqres client url."
+    },
+    {
+      "name": "reqres.path",
+      "type": "java.lang.String",
+      "description": "Reqres client path."
+    },
+    {
+      "name": "reqres.readTimeout",
+      "type": "java.lang.String",
+      "description": "Description for reqres.readTimeout."
+    },
+    {
+      "name": "reqres.connectionTimeout",
+      "type": "java.lang.String",
+      "description": "Description for reqres.connectionTimeout."
+    }
+  ] }

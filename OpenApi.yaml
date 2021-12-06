@@ -1,0 +1,73 @@
+openapi: 3.0.1
+info:
+  title: ProductOrderInformation API
+  description: POI service creates and retrieves all the information about the product
+    orders.
+  version: "1.0"
+servers:
+  - url: http://localhost:8080
+    description: Generated server url
+paths:
+  /api/order:
+    post:
+      tags:
+        - order-controller
+      summary: This is to create the order with user details and store it in the DB
+      operationId: createOrder
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProductDetails'
+        required: true
+      responses:
+        "500":
+          description: Something went wrong with the service/database while processing
+            the request
+        "400":
+          description: Product already ordered by the user
+        "201":
+          description: Successfully created the order
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OrderDetails'
+        "404":
+          description: EmailId not found
+  /api/orders:
+    get:
+      tags:
+        - order-controller
+      summary: This is to retrieve all the order records with user details from the
+        DB
+      operationId: retrieveOrderDetails
+      responses:
+        "200":
+          description: Successfully retrieved all the orders
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/OrderDetails'
+        "500":
+          description: Something went wrong with the service/database while processing
+            the request
+components:
+  schemas:
+    ProductDetails:
+      required:
+        - emailId
+        - productID
+      type: object
+      properties:
+        productID:
+          type: string
+        emailId:
+          type: string
+    OrderDetails:
+      type: object
+      properties:
+        orderID:
+          type: integer
+          format: int32
