@@ -72,7 +72,6 @@ public class OrderController {
             InvalidEmailIdException,
             ProductAlreadyOrderedException,
             DatabaseErrorException {
-        LOGGER.info("Process to create");
         LOGGER.info("Process to create order request for product : {}", productDetails.getProductID());
         validateRequest(productDetails);
 
