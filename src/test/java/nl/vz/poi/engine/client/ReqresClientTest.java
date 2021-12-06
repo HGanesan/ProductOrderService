@@ -52,7 +52,7 @@ public class ReqresClientTest {
                 ReqresClientException.class,
                 () -> reqresClient.getUserDetails("", ""),
                 "client error"
-        );;
+        );
     }
 
     @Test
@@ -62,6 +62,6 @@ public class ReqresClientTest {
                 ReqresClientException.class,
                 () -> reqresClient.getUserDetails("", ""),
                 "client error"
-        );;
+        );
     }
 }
